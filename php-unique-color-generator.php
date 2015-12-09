@@ -130,8 +130,7 @@ $text = array_slice($colors, $range+2, $range+3);
         colors within specific lightness parameters. neato.
         <li>i made this with PHP because that's all i know.  it uses mt_rand for color generation.  and i stole a snippet to convert hex color 
         codes into HSL for sorting. search for RGB to HSL functions, they're out there.  
-        <li>the color info is in the title attribute of each color div.  hover to see it.  i'd like to add a js snippet to easily click on 
-        each div to save that color info to the clipboard.  but i don't know how.
+        <li>the color info is in the title attribute of each color div.  hover to see it. click to copy the hex code to the clipboard.
        </ul>
       </p>
      </div>
@@ -146,7 +145,7 @@ $num = ceil( count($colors)/$sections );
 $colors = array_chunk($colors, $num, true);
 
 //  Display the number of generated colors after pulling unique so we can see if it's pulling enough
-echo "<h4>$total Colors Generated (hover for color info)</h4>";
+echo "<h4>$total Colors Generated -> HOVER for color info, CLICK to copy hex code to clipboard</h4>";
 
 // DISPLAY CODE & HSL Calculations from decimals, sort by given data, cycle through the new array and display the colors
 for ($i = 0; $i < $sections; $i++) {
