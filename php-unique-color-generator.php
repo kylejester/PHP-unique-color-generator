@@ -63,11 +63,13 @@ $text = array_slice($colors, $range+2, $range+3);
   <title>Unique Color Generator - KyleJester.com</title>
   <meta name="description" content="unique color generator, rgb to hsl, php convert rgb, color generator, hex code generator">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css' />
+     <link href="css/stuff.css" rel="stylesheet" type="text/css" />
   <style>
    body{padding:20px;margin:0;font-size:1em;font-family: 'Open Sans', sans-serif;color:#<?php echo key($text); ?>;}
    a,a:link,a:visited,a:active{color:#c00;text-decoration:none;font-weight:bolder;}
    a:hover{text-decoration:underline;color:#fd000b;}
+   .cursor-pointer:hover {cursor: pointer}
    #wrapper{width:99%;margin:0 auto 0 auto;padding:0;}
    #form{box-shadow: 6px 6px 5px #888888;width:96%;padding:1%;margin:0 auto;border:1px solid #555;background:#<?php echo key($bg1); ?>;border-radius:6px;}
    form,p,h3{margin:0;padding:0;}
@@ -157,7 +159,7 @@ for ($i = 0; $i < $sections; $i++) {
 
     // Display divs and put color values in the title attribute, and display that shit so people can read/copy it for fuck's sake
     echo "
-   <div id=\"color\" title=\"HEX: #" . $colors[$i][$key]['x'] . ", HSL: ($hue, $saturation, $lightness)\" style=\"background:#" . $colors[$i][$key]['x'] . ";width:" . $size . ";height:" . $size . "px;\"></div>";
+   <div class=\"copy-target cursor-pointer\" data-clipboard-text=\"#" . $colors[$i][$key]['x'] . "\" id=\"color\" title=\"HEX: #" . $colors[$i][$key]['x'] . ", HSL: ($hue, $saturation, $lightness)\" style=\"background:#" . $colors[$i][$key]['x'] . ";width:" . $size . ";height:" . $size . "px;\"></div>";
   }
   echo "
 
@@ -173,6 +175,10 @@ unset( $digits,$n, $hue, $saturation, $lightness, $total );  //  \m/
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-20479126-4','auto');ga('send','pageview');</script>
 <?php $time = microtime();$time = explode(' ', $time);$time = $time[1] + $time[0];$finish = $time;$total_time = round(($finish - $start), 8);echo 'Load Time: '.$total_time.' seconds.'; //  get and display page load time.  why, nobody's gonna ever look at it?>
   </div>
+ <script src="js/donkey-balls.js"></script>
+ <script src="js/highlight.pack.min.js"></script>
+ <script src="js/clipboard.min.js"></script>
+ <script src="js/tooltips.js"></script>
  </body>
 </html>
 
